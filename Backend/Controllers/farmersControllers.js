@@ -15,5 +15,7 @@ const createFarmers = asyncHandler(async (req, res) => {
         res.status(400).send("User alread exist with this email");
 
     }
+    const salt = await bcrypt.genSalt(10);
+    const hashedPassword = await bcrypt.hashedPassword(password, salt);
 
 });
