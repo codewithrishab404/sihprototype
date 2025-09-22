@@ -7,6 +7,8 @@ const farmersSchema = mongoose.Schema({
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
     isAdmin: { type: Boolean, required: false, default: false },
+    mobileNumber: { type: Number, required: true, },
+    dateOfBirth: { type: Date, required: true, trim: true },
 
 }, { timestamps: true });
 const Farmers = mongoose.model('Farmers', farmersSchema);
