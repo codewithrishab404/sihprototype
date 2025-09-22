@@ -1,0 +1,27 @@
+{
+  "name": "sihprototype",
+  "version": "1.0.0",
+  "description": "This is a ProtoType Model for our hacakthon . Problem Statement:",
+  "main": "index.js",
+  "scripts": {
+    "backend": "nodemon backend/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codewithrishab404/sihprototype.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/codewithrishab404/sihprototype/issues"
+  },
+  "homepage": "https://github.com/codewithrishab404/sihprototype#readme",
+  "dependencies": {
+    "dotenv": "^17.2.2",
+    "express": "^5.1.0",
+    "mongoose": "^8.18.1",
+    "nodemon": "^3.1.10"
+  }
+}
