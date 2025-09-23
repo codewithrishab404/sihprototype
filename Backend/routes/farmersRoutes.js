@@ -1,6 +1,6 @@
 import express from "express";
 
 const router = express.Router();
-router.route("/").post(createFarmers);
+//router.route("/").post(createFarmers);
 
 export default router;

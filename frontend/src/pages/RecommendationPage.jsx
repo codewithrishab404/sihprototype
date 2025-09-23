@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { motion } from "framer-motion";
+import { Sprout, MapPin, Layers, DollarSign, Trees } from "lucide-react";
 
 const RecommendationPage = () => {
   const [locationInput, setLocationInput] = useState("");
@@ -24,7 +26,7 @@ const RecommendationPage = () => {
       });
 
       const data = await response.json();
-      setRecommendations([data.response]); //  plain text from Gemini
+      setRecommendations([data.response]);
     } catch (error) {
       console.error("Error fetching AI recommendation:", error);
       alert("Failed to fetch recommendation. Try again!");
@@ -35,9 +37,18 @@ const RecommendationPage = () => {
   return (
     <div className="min-h-screen bg-gray-50 p-6">
       <div className="max-w-4xl mx-auto">
-        <h1 className="text-3xl font-bold text-green-800 mb-10 text-center">
-          Crop Recommendations
-        </h1>
+        {/* Heading with logo */}
+        <div className="flex items-center justify-center mb-10 space-x-3">
+          <motion.div
+            animate={{ scale: [1, 1.2, 1] }}
+            transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+          >
+            <Sprout className="w-10 h-10 text-green-600" />
+          </motion.div>
+          <h1 className="text-3xl font-bold text-green-800 text-center">
+            Crop Recommendations
+          </h1>
+        </div>
 
         {/* Input Form */}
         <div className="bg-white rounded-xl shadow-xl p-8 mb-10">
@@ -45,8 +56,10 @@ const RecommendationPage = () => {
             Enter Your Details
           </h2>
           <div className="grid md:grid-cols-3 gap-6">
+            {/* Location */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-gray-700 mb-2 flex items-center gap-1">
+                <MapPin className="w-4 h-4 text-green-600" />
                 Location
               </label>
               <input
@@ -58,8 +71,10 @@ const RecommendationPage = () => {
               />
             </div>
 
+            {/* Soil Type */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-gray-700 mb-2 flex items-center gap-1">
+                <Trees className="w-4 h-4 text-green-600" />
                 Soil Type
               </label>
               <select
@@ -75,8 +90,10 @@ const RecommendationPage = () => {
               </select>
             </div>
 
+            {/* Budget */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-gray-700 mb-2 flex items-center gap-1">
+                <DollarSign className="w-4 h-4 text-green-600" />
                 Budget Range
               </label>
               <select
@@ -93,13 +110,20 @@ const RecommendationPage = () => {
           </div>
 
           <div className="mt-6 flex justify-center">
-            <button
+            <motion.button
               onClick={generateRecommendations}
               disabled={loading}
-              className="bg-green-600 text-white px-8 py-3 rounded-lg hover:bg-green-700 font-semibold transition"
+              className="bg-green-600 text-white px-8 py-3 rounded-lg font-semibold transition cursor-pointer hover:bg-green-700"
+              animate={{ scale: [1, 1.05, 1] }}
+              transition={{
+                duration: 1,
+                repeat: Infinity,
+                repeatType: "loop",
+                ease: "easeInOut",
+              }}
             >
               {loading ? "Generating..." : "Get Recommendations"}
-            </button>
+            </motion.button>
           </div>
         </div>
 
