@@ -1,5 +1,6 @@
 import { ArrowRight, MapPin, TrendingUp, Award } from "lucide-react";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 const HomePage = () => (
   <div className="min-h-screen bg-gradient-to-b from-green-50 to-green-100">
