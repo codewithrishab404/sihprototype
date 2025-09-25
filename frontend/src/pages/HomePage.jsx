@@ -1,6 +1,5 @@
-import { ArrowRight, MapPin, TrendingUp, Award } from 'lucide-react';
-import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import { ArrowRight, MapPin, TrendingUp, Award } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const HomePage = () => (
   <div className="min-h-screen bg-gradient-to-b from-green-50 to-green-100">
@@ -11,7 +10,8 @@ const HomePage = () => (
           Smart Crop Recommendation System
         </h1>
         <p className="text-xl text-gray-700 mb-8 max-w-3xl mx-auto">
-          Maximize your agricultural yield with AI-powered crop recommendations tailored to your local climate, soil conditions, and market demands.
+          Maximize your agricultural yield with AI-powered crop recommendations
+          tailored to your local climate, soil conditions, and market demands.
         </p>
         <Link
           to="/recommendations"
@@ -44,7 +44,8 @@ const HomePage = () => (
           </motion.div>
           <h3 className="text-xl font-semibold mb-2">Location-Based</h3>
           <p className="text-gray-600">
-            Personalized recommendations based on your specific geographic location and local conditions.
+            Personalized recommendations based on your specific geographic
+            location and local conditions.
           </p>
         </div>
 
@@ -63,7 +64,8 @@ const HomePage = () => (
           </motion.div>
           <h3 className="text-xl font-semibold mb-2">Profit Optimization</h3>
           <p className="text-gray-600">
-            Maximize your returns with crops that offer the best market potential in your area.
+            Maximize your returns with crops that offer the best market
+            potential in your area.
           </p>
         </div>
 
@@ -82,7 +84,8 @@ const HomePage = () => (
           </motion.div>
           <h3 className="text-xl font-semibold mb-2">Expert Insights</h3>
           <p className="text-gray-600">
-            Access agricultural expertise and data-driven insights for informed decision making.
+            Access agricultural expertise and data-driven insights for informed
+            decision making.
           </p>
         </div>
       </div>
@@ -91,7 +94,9 @@ const HomePage = () => (
       <div className="bg-white rounded-lg shadow-lg p-8">
         <div className="grid md:grid-cols-4 gap-6 text-center">
           <div>
-            <div className="text-3xl font-bold text-green-600 mb-2">10,000+</div>
+            <div className="text-3xl font-bold text-green-600 mb-2">
+              10,000+
+            </div>
             <div className="text-gray-600">Farmers Helped</div>
           </div>
           <div>

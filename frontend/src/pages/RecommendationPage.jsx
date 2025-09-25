@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { motion } from "framer-motion";
+
 import { Sprout, MapPin, Layers, DollarSign, Trees } from "lucide-react";
 
 const RecommendationPage = () => {
