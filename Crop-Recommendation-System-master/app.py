@@ -58,14 +58,25 @@ def get_weather():
 
 @app.route('/predict', methods=['POST'])
 def predict():
-    # Get form data
-    temperature = float(request.form['temperature'])
-    humidity = float(request.form['humidity'])
-    moisture = float(request.form['moisture'])
-    soil_type = request.form['soil_type']
-    nitrogen = float(request.form['nitrogen'])
-    potassium = float(request.form['potassium'])
-    phosphorous = float(request.form['phosphorous'])
+    if request.is_json:
+        # Handle JSON request from React
+        data = request.json
+        temperature = float(data['temperature'])
+        humidity = float(data['humidity'])
+        moisture = float(data['moisture'])
+        soil_type = data['soil_type']
+        nitrogen = float(data['nitrogen'])
+        potassium = float(data['potassium'])
+        phosphorous = float(data['phosphorous'])
+    else:
+        # Handle form data from HTML
+        temperature = float(request.form['temperature'])
+        humidity = float(request.form['humidity'])
+        moisture = float(request.form['moisture'])
+        soil_type = request.form['soil_type']
+        nitrogen = float(request.form['nitrogen'])
+        potassium = float(request.form['potassium'])
+        phosphorous = float(request.form['phosphorous'])
 
     # Encode soil_type
     soil_encoded = soil_encoder.transform([soil_type])[0]
@@ -84,7 +95,10 @@ def predict():
         fert = crop_to_fert.get(crop, 'Unknown')
         recommendations.append((crop, prob, fert))
 
-    return render_template('index.html', recommendations=recommendations)
+    if request.is_json:
+        return jsonify({'recommendations': recommendations})
+    else:
+        return render_template('index.html', recommendations=recommendations)
 
 @app.route('/analyze_soil', methods=['POST'])
 def analyze_soil():

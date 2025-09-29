@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navigation from './components/Navigation';
 import HomePage from './pages/HomePage';
-import RecommendationsPage from './pages/RecommendationPage';
+import CropRecommendation from './pages/CropRecommendation';
 import WeatherPage from './pages/WeatherPage';
 import SupportPage from './pages/SupportPage';
 
@@ -12,7 +12,7 @@ const App = () => {
         <Navigation />
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/recommendations" element={<RecommendationsPage />} />
+          <Route path="/recommendations" element={<CropRecommendation />} />
           <Route path="/weather" element={<WeatherPage />} />
           <Route path="/support" element={<SupportPage />} />
         </Routes>
